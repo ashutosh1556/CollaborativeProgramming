@@ -23,7 +23,7 @@ class LinkedList {
      */
     void insertElementAtStart(int data) {
 
-        if (data >= Integer.MAX_VALUE || data <= Integer.MIN_VALUE) {
+        if (data > Integer.MAX_VALUE || data < Integer.MIN_VALUE) {
             System.out.println("Number out of boundary");
         } else {
             Node node = new Node();
@@ -39,6 +39,39 @@ class LinkedList {
         }
     }
 
+    /***
+     * Test Cases:
+     * ===========================
+     * insertAtLast(3)
+     * insertAtLast(null)
+     * insertAtLast(-2)
+     * insertAtLast('a')
+     * insertAtLast("123")
+     * insertAtLast(MaxInteger+1)
+     * insertAtLast(MinInteger-1)
+     * insertAtLast(true)
+     */
+    void insertAtLast(int data) {
+        // Creating new node with data and address
+        Node newNode = new Node();
+        newNode.data = data;
+        newNode.next = null;
+
+        Node node = head; // Assigning head reference to node
+
+        if (head == null) head = newNode; // Check for empty list
+        else {
+            while (node.next != null) { // Iterating to last node in linked list
+                node = node.next;
+            }
+            node.next = newNode; // linking existing last node with newNode
+        }
+    }
+
+    void insertAt(int index, int data) {
+
+    }
+
     void showElements() {
         Node node = head;
 
@@ -48,16 +81,25 @@ class LinkedList {
                 node = node.next;
             }
             System.out.println(node.data); // last element only
-        } else
-            System.out.println("Element not present");
+        }
     }
+
+    void removeAtLast() {
+    }
+
+    void removeAtFirst() {
+    }
+
+    void removeAt(int index) {
+    }
+
 }
 
 class TestRunner {
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.insertElementAtStart(Integer.MIN_VALUE - 5);
+        ll.insertAt(0, 1);
         ll.showElements();
     }
 }
