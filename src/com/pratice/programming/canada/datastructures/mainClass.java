@@ -13,6 +13,11 @@ public class mainClass {
         obj.insertFirst(1);
         obj.insertFirst(2);
         obj.insertAtEnd(3);
+        System.out.println(" Linked list -->");
+        obj.printElements();
+        System.out.println("delete last node");
+        obj.removeLastNode();
+        System.out.println("After Deleting the last node");
         obj.printElements();
 
 
@@ -109,17 +114,20 @@ public class mainClass {
     void removeLastNode() {
 
         if (head == null) {
-            System.out.println("Lnked list is empty");
+            System.out.println("Linked list is empty");
         }else if (head.ref == null) {
             System.out.println("There is only one node");
             head = null;
-        } else {
-            Node nodePtr = head;
-            while (nodePtr.ref != null) {
-                nodePtr = nodePtr.ref;
+        } else { // more than one node
+            Node nodePtrNext = head;
+            Node nodePtrPrev = null;
+            while (nodePtrNext.ref != null) {
+                nodePtrPrev = nodePtrNext;
+                nodePtrNext = nodePtrNext.ref;
 
                 /* but how to navigate back to second last node?*/
             }
+            nodePtrPrev.ref =null;
 
         }
     }
