@@ -10,18 +10,24 @@ public class mainClass {
     public static void main(String[] args) {
 
         mainClass obj = new mainClass();
-        obj.insertFirst(1);
+       obj.insertFirst(1);
         obj.insertFirst(2);
         obj.insertAtEnd(3);
-        System.out.println(" Linked list -->");
-        obj.printElements();
-        System.out.println("delete last node");
-        obj.removeLastNode();
-        System.out.println("After Deleting the last node");
+        //System.out.println(" Linked list -->");
+        //obj.printElements();
+        //System.out.println("delete last node");*/
+        //obj.removeLastNode();
+       //System.out.println("After Deleting the last node");
+        obj.removeFirstNode();
+        System.out.println(" After removing first node the Linked list is -->"); //  1 3
         obj.printElements();
 
 
     }
+
+
+
+
 
     /*
     Insert element at first position
@@ -99,7 +105,33 @@ public class mainClass {
 
     }
 
+/*
 
+1. change head node value to point to head.ref
+
+Scenario 2 - additoinal step to make the address field of first node as null
+Exceptions -
+1. LL empty
+2. only 1 node in LL
+ */
+
+    void removeFirstNode(){
+        Node node = head;
+        if (head == null){
+            System.out.println("Linked list is empty");
+        }else if (head.ref == null){
+            head = null; // remove the only existing node
+        }else{
+            head = head.ref;  // update head to point to second node
+            node.ref=null;
+        }
+
+    }
+
+
+    /* removeAtIndex
+
+   
     /*
 
     /*
@@ -112,12 +144,12 @@ public class mainClass {
         2. Remove last node - i.e. put null value in the address of second last node.
      */
     void removeLastNode() {
-
         if (head == null) {
             System.out.println("Linked list is empty");
         }else if (head.ref == null) {
-            System.out.println("There is only one node");
+            System.out.println("There is only one node and that is removed");
             head = null;
+            printElements();
         } else { // more than one node
             Node nodePtrNext = head;
             Node nodePtrPrev = null;
@@ -128,11 +160,12 @@ public class mainClass {
                 /* but how to navigate back to second last node?*/
             }
             nodePtrPrev.ref =null;
-
         }
     }
 
 }
+
+
 // end of main class
 
 class Node {
