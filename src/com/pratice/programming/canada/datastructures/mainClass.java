@@ -130,7 +130,6 @@ Exceptions -
 void removeAtIndex()
 {
     System.out.println("this is just testing git command");
-
 }
 
     /* removeAtIndex
