@@ -1,4 +1,4 @@
-package com.pratice.programming.india.datastructures;
+package com.pratice.programming.india.datastructures.linkedlist;
 
 class Node {
     int data;
