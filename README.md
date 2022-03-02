@@ -16,6 +16,9 @@ Write a program to remove a character from String
 1. What could be the maximum length of input String?
 2. Are we considering special characters as well?
 3. What outcome do we expect if string/char is empty or null?
+4. If String is  "java". Should we remove all the a's or just first occurrence?
+5. Should we consider case sensitivity?
+6. What arguments should be passed to method and what is expected return type? 
 
 ### Discuss approaches you could think of:
 
