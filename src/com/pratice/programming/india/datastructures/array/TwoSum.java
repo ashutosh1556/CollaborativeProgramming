@@ -3,14 +3,50 @@ package com.pratice.programming.india.datastructures.array;
             array = {-1, 5, 2, -3, 4}
             target = 4
 
-Assumptions: target is a valid integer
+Clarifying questions:
+1. Can array have -negative numbers as well?
+2. What should be returned if it did not find such pair?
+3. Min/Maximum length of array?
+4. Min/Maximum target number?
+
+Test Cases:
+1. int[] arr = {2,6,3,4,5}, target = 9 // Positive - Pair found
+2. int[] arr = {0,-1,2,1,-2}, target = 9 // Negative - no pair found
+
+Special Case:
+3. int[] arr = {-1,-3,-2,-4}, target = 2  // Logic do not handle all negative numbers
 */
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
-    private HashMap twoSumNaive(int[] array, int target) {
+
+    public static void main(String[] args) {
+        TwoSum obj = new TwoSum();
+        int[] array = {-1, 5, 2, -3, 4};
+        int target = 4;
+//        System.out.println(obj.twoSumNaive(array, target));
+//        System.out.println(obj.twoSumWithTwoPointer(array, target));
+        System.out.println(Arrays.toString(obj.twoSumWithHashMap(array, target)));
+
+    }
+
+    /**
+     * @param array  Take input array of integers from main()
+     * @param target Take input integer from main()
+     * @return Hashmap<Integer, Integer>, with
+     * key     as first number from Array
+     * Value   as second number from Array
+     * When there is a match
+     * <p>
+     * Hashmap<Integer, Integer> with
+     * key     as Empty
+     * Value   as Empty
+     * When there is no match
+     */
+    HashMap<Integer, Integer> twoSumNaive(int[] array, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         try {
             if (array.length == 0 || target < Integer.MIN_VALUE || target > Integer.MAX_VALUE) {
@@ -29,7 +65,8 @@ public class TwoSum {
         }
         return map;
     }
-    private HashMap twoSumOptimised(int[] array, int target) {
+
+    HashMap<Integer, Integer> twoSumWithTwoPointer(int[] array, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         if (array.length == 0 || target < Integer.MIN_VALUE || target > Integer.MAX_VALUE) {
             return map;
@@ -56,13 +93,24 @@ public class TwoSum {
         return map;
     }
 
-    public static void main(String[] args) {
-        TwoSum obj = new TwoSum();
-        int[] array = {-1, 5, 2, -3, 4};
-//        int[] array = {-3, -1, 2, 4, 5};
-        int target = 4;
-        System.out.println(obj.twoSumOptimised(array, target));
-        System.out.println(obj.twoSumNaive(array, target));
-    }
+    private int[] twoSumWithHashMap(int[] arr, int target) {
+        int len = arr.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] result = new int[2];
 
+        if (target < Integer.MIN_VALUE || target > Integer.MAX_VALUE) return result;
+        if (len < 2) return result;
+
+        for (int i = 0; i <= arr.length - 1; i++) {
+            int diff = target - arr[i];
+            if (map.containsKey(diff)) {
+                result[1] = i;
+                result[0] = map.get(diff);
+                return result;
+            }
+            if (map.containsKey(arr[i])) continue;
+            map.put(arr[i], i);
+        }
+        return result;
+    }
 }
