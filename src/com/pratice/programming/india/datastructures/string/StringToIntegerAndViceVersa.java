@@ -1,6 +1,4 @@
-package com.pratice.programming.india.string;
-
-import java.util.HashMap;
+package com.pratice.programming.india.datastructures.string;
 
 class StringToIntegerAndViceVersa {
 

@@ -1,4 +1,4 @@
-package com.pratice.programming.india.string;
+package com.pratice.programming.india.datastructures.string;
 
 // Count the occurrence of a given character in a String?
 

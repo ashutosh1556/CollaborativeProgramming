@@ -1,6 +1,4 @@
-package com.pratice.programming.india.string;
-
-import java.util.LinkedList;
+package com.pratice.programming.india.datastructures.string;
 
 public class StringMethods {
     public static void main(String[] args) {

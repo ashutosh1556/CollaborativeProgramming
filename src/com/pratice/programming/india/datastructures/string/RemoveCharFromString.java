@@ -1,4 +1,4 @@
-package com.pratice.programming.india.string;
+package com.pratice.programming.india.datastructures.string;
 
 public class RemoveCharFromString {
 

@@ -1,6 +1,4 @@
-package com.pratice.programming.india.string;
-
-import java.lang.management.PlatformLoggingMXBean;
+package com.pratice.programming.india.datastructures.string;
 
 public class PalindromeString {
 
